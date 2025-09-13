@@ -3,10 +3,10 @@ behaviors:
   FixedOberservation:
     trainer_type: ppo
     hyperparameters:
-      batch_size: 2048
-      buffer_size: 20480
+      batch_size: 1024
+      buffer_size: 10240
       learning_rate: 0.0003
-      beta: 0.03
+      beta: 0.05
       epsilon: 0.2
       lambd: 0.95
       num_epoch: 3
@@ -63,7 +63,7 @@ engine_settings:
   no_graphics: false
 environment_parameters: null
 checkpoint_settings:
-  run_id: SingleTrainingTimeOutZero
+  run_id: Milestones_10-MilestonePay_1-HolePunishment_0.2-Reward_0.5-Decision_3-Beta_0.05-StackedVectors_10-Boards_4-Tiltspeed_90-Batch_1024-Buffer_10240-HiddenUnits_1024-NoWallRayInformation
   initialize_from: null
   load_model: false
   resume: false
