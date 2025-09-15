@@ -1,6 +1,6 @@
 default_settings: null
 behaviors:
-  SimpleLevel:
+  RandomStartPosition:
     trainer_type: ppo
     hyperparameters:
       batch_size: 1024
@@ -16,7 +16,7 @@ behaviors:
       epsilon_schedule: linear
     network_settings:
       normalize: false
-      hidden_units: 1280
+      hidden_units: 1024
       num_layers: 3
       vis_encode_type: simple
       memory: null
@@ -28,7 +28,7 @@ behaviors:
         strength: 1.0
         network_settings:
           normalize: false
-          hidden_units: 1280
+          hidden_units: 1024
           num_layers: 3
           vis_encode_type: simple
           memory: null

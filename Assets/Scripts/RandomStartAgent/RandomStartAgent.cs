@@ -4,7 +4,7 @@ using Unity.MLAgents.Actuators;
 using UnityEngine;
 using UnityEngine.AI;
 using System.Collections.Generic;
-public class NewAgent : Agent
+public class RandomStartAgent : Agent
 {
     public Rigidbody ballRb;
     public Transform ball;
@@ -93,8 +93,18 @@ public class NewAgent : Agent
         currentTiltX = 0f;
         currentTiltZ = 0f;
 
+        // Random position on board within bounds
+        Vector3 randomOffset = new Vector3(
+            Random.Range(-7.0f, 7.0f),  // X-Verschiebung
+            0f,
+            Random.Range(-7.0f, 7.0f)   // Z-Verschiebung
+        );
+
         // Reset the ball's position and velocity
-        Vector3 resetPosition = transform.TransformPoint(initialBallLocalPos);
+        // Neuen Startpunkt auf dem Pfad wählen
+        Vector3 resetPosition = transform.TransformPoint(initialBallLocalPos + randomOffset);
+        //Vector3 resetPosition = GetRandomStartPositionAlongPath();
+        //resetPosition.y = transform.TransformPoint(initialBallLocalPos).y;
         ball.position = resetPosition;
         ballRb.velocity = Vector3.zero;
         ballRb.angularVelocity = Vector3.zero;
@@ -217,7 +227,7 @@ public class NewAgent : Agent
 
 
         // --- Raycast-Distanzinformationen  ---
-        
+
         for (int i = 0; i < rayCount; i++)
         {
             bool isClear = true;
@@ -263,7 +273,7 @@ public class NewAgent : Agent
         // --- Pathfinding & Rewarding ---
         if (NavMesh.CalculatePath(transform.TransformPoint(initialBallLocalPos), goal.position, NavMesh.AllAreas, navPath))
         {
-            idealPath = InterpolatePath(navPath, 0.25f); 
+            idealPath = InterpolatePath(navPath, 0.25f);
             cumPathDist = BuildCumulativeDistances(idealPath);
             pathLength = cumPathDist[cumPathDist.Count - 1];
 
@@ -514,6 +524,35 @@ public class NewAgent : Agent
             if (boardHalfSizeX <= 0f) boardHalfSizeX = 0.115f;
             if (boardHalfSizeZ <= 0f) boardHalfSizeZ = 0.14f;
         }
+    }
+
+    private Vector3 GetRandomStartPositionAlongPath()
+    {
+        if (idealPath == null || idealPath.Count < 2)
+        {
+            Debug.LogWarning("IdealPath nicht vorhanden oder zu kurz!");
+            return transform.TransformPoint(initialBallLocalPos); // Fallback
+        }
+
+        // Gesamtlänge berechnen, falls noch nicht passiert
+        if (cumPathDist == null || cumPathDist.Count != idealPath.Count)
+            cumPathDist = BuildCumulativeDistances(idealPath);
+
+        float totalDist = cumPathDist[cumPathDist.Count - 1];
+        float randomDist = Random.Range(0f, totalDist);
+
+        // Position interpolieren
+        for (int i = 1; i < cumPathDist.Count; i++)
+        {
+            if (randomDist <= cumPathDist[i])
+            {
+                float t = Mathf.InverseLerp(cumPathDist[i - 1], cumPathDist[i], randomDist);
+                Vector3 pos = Vector3.Lerp(idealPath[i - 1], idealPath[i], t);
+                return pos;
+            }
+        }
+
+        return idealPath[idealPath.Count - 1]; // Falls was schiefläuft
     }
 }
 
