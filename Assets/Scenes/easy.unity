@@ -3844,7 +3844,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: 32fb78fb3d0279d4d84f4aad8a4a882a, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: f2b3d1d0d3b18034ea1c9a5ce4fb4007, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: FinalEasy
@@ -14113,7 +14113,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: 32fb78fb3d0279d4d84f4aad8a4a882a, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: f2b3d1d0d3b18034ea1c9a5ce4fb4007, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: FinalEasy
@@ -19763,7 +19763,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: 32fb78fb3d0279d4d84f4aad8a4a882a, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: f2b3d1d0d3b18034ea1c9a5ce4fb4007, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: FinalEasy
@@ -19989,7 +19989,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: 32fb78fb3d0279d4d84f4aad8a4a882a, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: f2b3d1d0d3b18034ea1c9a5ce4fb4007, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: FinalEasy
