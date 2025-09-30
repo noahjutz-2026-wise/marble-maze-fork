@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c310ef2dd824b43e08a19f08755a193c, type: 3}
-  m_Name: Hard_Import_Settings 2
+  m_Name: Extreme_Import_Settings
   m_EditorClassIdentifier: 
   enableAgent: 1
   enableTracking: 0
@@ -68,11 +68,11 @@ MonoBehaviour:
   agentKNearestHoles: 5
   agentRayHeight: 0.2
   agentClearanceFactor: 0.8
-  agentMilestoneBins: 8
-  agentMilestoneBonus: 1
+  agentMilestoneBins: 20
+  agentMilestoneBonus: 0.8
   agentRayCount: 8
   agentMaxDistance: 4
-  behaviorName: FinalHard
+  behaviorName: FinalExtreme
   behaviorTeamId: 0
   behaviorType: 0
   useChildSensors: 1
@@ -81,7 +81,7 @@ MonoBehaviour:
   continuousActionSize: 2
   decisionPeriod: 3
   takeActionsBetweenDecisions: 1
-  behaviorModel: {fileID: 5022602860645237092, guid: a7a312ff04a6d2941859ff6d4c8f8cde, type: 3}
+  behaviorModel: {fileID: 5022602860645237092, guid: 0b9f235b835d11a4e95e2454fa4a898c, type: 3}
   inferenceDevice: 0
   trackingMode: 0
   showTrackingFeedback: 1
